@@ -22,6 +22,16 @@ class User < ApplicationRecord
 
   has_many :pending_invitations, foreign_key: :email, primary_key: :email
 
+  include Storext.model
+  store :settings, coder: JSON
+  store_attributes :settings do
+    subscribed_to_newsletter Boolean, default: false
+    time_zone String
+    theme String, default: 'dark'
+    send_highlights_browser_push Boolean, default: true
+    send_mention_email Boolean, default: true
+  end
+
   # Multiple push_subscriptions over many devices
   has_many :push_subscriptions, dependent: :destroy
 
