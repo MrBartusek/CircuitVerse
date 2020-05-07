@@ -1,0 +1,22 @@
+<link href="/css/typeahead.min.css" rel="stylesheet">
+
+<div class="container my-4 text-center">
+  <h1>USER SETTINGS</h1>
+</div>
+
+<div class="container border-0 edit-profile-page-bg">
+  <div class="row feature border-0 rounded-0 ">
+    <div class="container px-5">
+      <div class="container">
+        <div class="col-12">
+        
+        <% User.storext_definitions.each do |s| %>
+          <%= @settings.group_name(s) %>  <%= @settings.setting_name(s) %><br>
+        <% end %>
+    </div>
+     </div>
+    </div>
+    <br/>
+    <br/>
+  </div>
+</div>

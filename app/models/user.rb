@@ -22,14 +22,15 @@ class User < ApplicationRecord
 
   has_many :pending_invitations, foreign_key: :email, primary_key: :email
 
+
   include Storext.model
   store :settings, coder: JSON
+  # Configure user settings here
+  # format: category_setting_name
+  # uses: https://github.com/G5/storext
   store_attributes :settings do
-    subscribed_to_newsletter Boolean, default: false
-    time_zone String
-    theme String, default: 'dark'
-    send_highlights_browser_push Boolean, default: true
-    send_mention_email Boolean, default: true
+    platform_test_setting Boolean, default: false
+    platform_second_test_setting Boolean, default: false
   end
 
   # Multiple push_subscriptions over many devices

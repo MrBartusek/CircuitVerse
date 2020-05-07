@@ -49,6 +49,10 @@ class Users::LogixController < ApplicationController
                             .group("groups.id")
   end
 
+  def settings
+    @settings = SettingsDecorator.new(@user.settings)
+  end
+
   private
     def profile_params
       params.require(:user).permit(:name, :profile_picture, :country, :educational_institute,
