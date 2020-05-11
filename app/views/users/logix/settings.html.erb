@@ -9,10 +9,13 @@
     <div class="container px-5">
       <div class="container">
         <div class="col-12">
-        
-        <% User.storext_definitions.each do |s| %>
-          <%= @settings.group_name(s) %>  <%= @settings.setting_name(s) %><br>
+        <% @settings.organize_definitions.each do |group| %>
+          <h1><%= group[0].capitalize %></h1>
+          <% group[1].each do |setting| %>
+            <b><%= setting[1][:frendly_name] %></b> <%= setting[1][:frendly_description] %> <br>
+          <% end %>
         <% end %>
+        <hr>
     </div>
      </div>
     </div>
